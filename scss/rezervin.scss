@@ -1,0 +1,47 @@
+.rezervin-user {
+  a.login-btn {
+    color: $yellow;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    font-family: $regular;
+    margin-top: 1px;
+    padding: 15px;
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      background-position: center;
+      background-image: url("../assets/icons/user.png");
+      margin-left: 10px;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .rezervin-user {
+    padding: 0 3px 0 0;
+    a.login-btn {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      max-width: 50px;
+      color: $white-text;
+      font-size: 14px;
+      font-weight: 100;
+      &::after {
+        margin: 0;
+        background-size: 50% 50%;
+      }
+    }
+  }
+}
+.event-sing-up {
+  background: #fffd82;
+  &:after {
+    color: #c42b2d;
+  }
+}

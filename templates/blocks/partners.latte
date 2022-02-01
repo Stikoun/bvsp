@@ -1,0 +1,11 @@
+<section class="partners pt-5 mb-5">
+    <div class="container">
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5">   
+            <div n:foreach="get_field('partners') as $p" class="col">
+                <a href="{$p['link']}">
+                    <img alt="logo-{$p['name']}" src="{$p['logo']}">
+                </a>      
+            </div>
+        </div>   
+    </div>
+</section>

@@ -1,0 +1,5 @@
+{if get_field("target")}
+    <a href="{get_field('link')}" target="_blank" class="button {get_field('color')}">{get_field("text")}</a>
+{else} 
+    <a href="{get_field('link')}" class="button {get_field('color')}">{get_field("text")}</a>
+{/if}

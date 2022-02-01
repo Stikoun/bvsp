@@ -1,0 +1,111 @@
+.rezervin-user {
+    cursor: pointer;
+    .user-bubble {
+      position: absolute;
+      cursor: auto;
+      right: 20px;
+      top: 130px;
+      max-width: 90vw;
+      background-color: #38394C;
+      z-index: 9;
+      border-radius: 10px;
+      padding: 30px 40px 40px;
+      z-index: 9999;
+      .form-group {
+        margin-top: 10px;
+      }
+      input {
+        height: 43px;
+        width: 100%;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        border: none;
+        margin-top: 3px;
+        padding-left: 10px;
+        font-weight: 900;
+        color: #33333F;
+        &:hover,&:focus {
+            background-color: #f3f3f3;
+        }
+        &:focus {
+            outline: 0 none;
+            border: none;
+        }
+        &::placeholder {
+            font-size: 14px;
+            font-weight: 300;
+            color: #A1A1A1;
+        }
+        &[type=submit] {
+          height: 50px;
+          margin-top: 20px;
+          border-radius: 20px;
+          background-color: #FFFC7C;
+          text-transform: uppercase;
+          font-size: 15px;
+          font-weight: 900;
+        }
+      }
+      label {
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      span {
+          display: block;
+          color: $red;
+          margin: 5px 0;
+      }
+      .user-bubble-content {
+          color: #FFFFFF;
+          button {
+            height: 50px;
+            border-radius: 20px;
+            border: none;
+            color: #000;
+            background-color: $yellow;
+            padding: 0 30px;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 900;
+            &:hover {
+                color: $yellow-hover;
+            }
+          }
+        .login-bottom {
+            display: flex;
+            flex-direction: row-reverse;
+            margin-top: 5px;
+            a {
+                color: #646582;
+                font-weight: 900;
+                cursor: pointer;
+                &:hover {
+                    color: #4f5068;
+                }
+            }
+            .become-member {
+                margin-left: 20px;
+                color: $yellow;
+                &:hover {
+                    color: $yellow-hover;
+                }
+            }
+        }
+      }
+      .user-bubble-close {
+        position: absolute;
+        font-size: 15px;
+        font-weight: 900;
+        top: -10px;
+        right: -10px;
+        background-color: #4A4B67;
+        padding:  8px 15px;
+        border-radius: 40px;
+        color: #fff;
+        text-decoration: none;
+        float: right;
+        cursor: pointer;
+      }
+    }
+}

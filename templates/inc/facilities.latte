@@ -1,0 +1,30 @@
+{var $loop_areals = new WP_Query(array('post_type' => 'facility'))}
+<section class="branches py-5" id="arealy">
+    <div class="container">
+        <h2>Naše areály</h2>
+        <div class="row">
+            <div class="col-md-6 col-lg-4" n:while="$loop_areals->have_posts()">
+                {php $loop_areals->the_post();}
+                <div class="location">
+                    <img alt="areal-{the_title()}" src="{the_post_thumbnail_url()}">
+                    <h3><a href="{the_permalink()}" class="effect-under-right before white">{the_title()}</a></h3>
+                    <div>{get_field('name')}</div>
+                    <div class="icon-container">
+                        <div class="icon">
+                            <i class="icon-mail-inbox-app"></i>
+                            <a href="mailto:{get_field('mail')}" class="effect-under-right before white">{get_field('mail')}</a>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-phone"></i>
+                            <a href="tel:{get_field('tel')|replace: ' ', ''}" class="effect-under-right before white">{get_field('tel')}</a>
+                        </div>
+                    </div>
+                    <div class="icon-box" n:if="get_field('address')['place_id']">
+                        <i class="icon-pin-2"></i>{dump get_field('address')}
+                        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={get_field('address')['lat']},{get_field('address')['lng']}&destination_place_id={get_field('address')['place_id']}" class="effect-under-right before yellow">Cesta k nám</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

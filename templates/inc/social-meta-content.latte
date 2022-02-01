@@ -1,0 +1,23 @@
+{php $obj_id = get_queried_object_id();
+$current_url = get_permalink( $obj_id );
+$current_img_url = get_the_post_thumbnail_url( $obj_id ); 
+$title = get_the_title ($obj_id);
+$post_type = get_post_type($obj_id);
+}
+
+<meta property="og:title" content="{php echo $title;}" />
+<meta property="og:url" content="{php echo($current_url);}" />
+<meta property="og:image" content="{php echo $current_img_url;}" />
+<meta name="og:description" content="{php get_field( 'seo_description' )}" />
+{if ($post_type == "post")}
+<meta property="og:type" content="article" />
+{else}
+<meta property="og:type" content="website" />
+{/if}
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="{php echo $title;}"/>
+<meta name="twitter:description" content="{php get_field( 'seo_description' )}"/>
+<meta name="twitter:site" content="@yourusername"/>
+<meta name="twitter:image" content="{php echo $current_img_url;}"/>
+

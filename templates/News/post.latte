@@ -1,0 +1,40 @@
+{* TOTO JE STRÁNKA S PŘÍSPĚVKY (home)*}
+{block content}
+{php $current_facility = get_the_terms($current_id,'arealy')}
+{php $main_img = get_field('img')}
+<section class="post-detail">
+    <div class="container">
+        <div class="post-nav">
+            <a href="{get_permalink(get_previous_post()->ID)}" class="prev">Předchozí novinka</a>
+            <a href="/novinky" class="current">Seznam novinek</a>
+            <a href="{get_permalink(get_next_post()->ID)}" class="next">Další novinka</a>       
+        </div>
+        <article>
+            <header>
+                <div class="post-card">
+                   {if $main_img}
+                        <img src="{$main_img['url']}" alt="{$main_img['alt']}"> 
+                    {else}
+                        <img src="{get_stylesheet_directory_uri()}/images/logos/logo-transparent.png" alt="BVŠP logo" class="empty">         
+                   {/if} 
+                    <div class="tag blue-stain-bg" n:if="$current_facility"><span n:foreach="$current_facility as $facility">{$facility->name}</span></div>       
+                </div>     
+                <div class="meta">
+                    <h2>{the_title()}</h2>
+                    <span>{get_the_author()}</span>
+                    <span n:foreach="get_the_category() as $cat">{$cat->name}</span>
+                    <span>{get_the_date()}</span>   
+                </div>       
+            </header>
+            <div class="content">
+                {the_content()}  
+            </div> 
+            <footer>
+                <div class="tags" n:if="get_the_tags()">
+                    <h3>Štítky</h3>
+                    <a n:foreach="get_the_tags() as $tag" href="{get_term_link($tag)}">{$tag->name}</a>
+                </div>
+            </footer>
+        </article>
+    </div>
+</section>

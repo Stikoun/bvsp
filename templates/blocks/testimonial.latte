@@ -1,0 +1,37 @@
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <h2>{get_field('group')['heading']|noescape}</h2>
+            <div class="col-md-7">
+                {get_field('group')['text']|noescape}
+                <div class="cta">
+                    <div class="row">
+                        <div class="col-md-4 bg-wrapper">
+                            <div class="inside-content">
+                                <div class="bg" style="background-image:url('{get_field('group')['image']|noescape}')"></div>  
+                                <div class="circle"></div>
+                                <div class="blue-stain-bg"><span>Domyno</span></div>
+                            </div>                   
+                        </div>
+                        <div class="col-md-8 content quote-box">
+                            <div class="quote">
+                                <p>
+                                    {get_field('group')['quote']|noescape}
+                                </p>
+                            </div>
+                            <span class="c-red underline style-red">{get_field('group')['author']|noescape}</span>
+                            <div>{get_field('group')['position']|noescape}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="feature-list">
+                    <ul>
+                        <li n:foreach="get_field('pluses') as $p" class="effect-under-right after red">{$p['plus']}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

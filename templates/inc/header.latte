@@ -1,0 +1,51 @@
+<header class="secondary-header">
+    <div class="mask">
+        <div class="header-bg" style="background-image: url({get_the_post_thumbnail_url()});">
+            <div class="person-img" n:if="get_field('person')">
+                <div class="img" style="background-image: url({get_field('person')});"></div>
+            </div>
+        </div>
+    </div>
+    {include "navbar.latte"}
+    <div class="container">
+        <span class="big-text" n:if="get_field('description')">{get_field('description')}</span>
+        <h1>
+         {if get_field("title")}
+            {get_field("title")}
+         {elseif is_404()}
+            {get_field("error_page","option")["heading"]}
+         {elseif is_post_type_archive()}
+             {post_type_archive_title()}       
+         {elseif is_tax("rubrika") || is_tax("stitek")}
+             {get_taxonomy("rubrika")->object_type[0]|firstUpper}
+         {elseif is_category() || is_date() || is_tag() || is_tax("arealy")}
+             Novinky
+         {else}
+            {the_title()}
+         {/if}
+        </h1>
+        {function_exists('yoast_breadcrumb') ? yoast_breadcrumb( '<p id="breadcrumbs">','</p>' )}
+    </div>
+    <svg>
+        <defs>
+            <clipPath id="mask-mobile" clipPathUnits="objectBoundingBox">
+                <path
+                    transform="scale(0.00135, 0.0022)"
+                    d="m 0 151 l 0 -151 l 371.1 0 l 370.9 0 l 1 0 l 0 30 l 0 380 c -320 -68 -583 -50 -743 -102 z">
+                </path>
+            </clipPath>
+            <clipPath id="mask-pc" clipPathUnits="objectBoundingBox">
+                <path
+                    transform="scale(0.00135, 0.0022)"
+                    d="m 0 151 l 0 -151 l 371.1 0 l 370.9 0 l 1 0 l 0 30 l 0 415 c -193 -156 -615 -146 -743 -95 z">
+                </path>
+            </clipPath>
+            <clipPath id="mask-pc-large" clipPathUnits="objectBoundingBox">
+                <path
+                    transform="scale(0.00135, 0.0022)"
+                    d="m 0 151 l 0 -151 l 371.1 0 l 370.9 0 l 1 0 l 0 30 l 0 410 c -152 -201 -615 -146 -743 -90 z">
+                </path>
+            </clipPath>
+        </defs>
+    </svg>
+</header>

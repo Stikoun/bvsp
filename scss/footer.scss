@@ -1,0 +1,116 @@
+body > footer {
+  clip-path: ellipse(100% 100% at 65% 100%);
+  padding: 200px 0 60px 0;
+  margin-top: -200px;
+  background-color: $dark;
+  color: $white-text;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  h2 {
+    font-size: 29px;
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+  
+  address {
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-link {
+    display: inline-block;
+  }
+
+  .icon-box {
+    margin-bottom: 0.5rem;
+
+    &:first-of-type{
+      margin-top: 2rem;
+    }
+
+    i::before {
+      font-size: 20px;
+      margin-right: 1rem;
+    }
+
+    a {
+      font-size: 29px;
+      color: $yellow;
+  
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+
+  #absolute-footer {
+    margin-top: 50px;
+    font-size: 18px;
+
+    .icon-container {
+      display: flex;
+
+      span {
+        margin-right: 1rem;
+      }
+
+      .fa-stack:hover {
+        .fa-stack-2x {
+          color: white;
+        }
+      }
+
+      .fa-stack:first-child {
+        margin-left: 0.5rem;
+      }
+    }
+
+    a {
+      margin-right: 1rem;
+    }
+    i {
+      font-size: 35px;
+      color: $yellow;
+    }
+
+    #copyright {
+      color: $white-text;
+      font-family: $regular;
+
+      &::after {
+        content: '';
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 82px;
+        height: 17px;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+
+  @include media-breakpoint-down(md) { 
+    padding: 10px;
+    clip-path: none;
+    margin-top: 0;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    #absolute-footer {
+      margin-top: 30px;
+
+      & > :first-child {
+        order: 2;
+      }
+    }
+    
+    [class^="col"] {
+      margin-bottom: 30px;
+    }
+  }
+}

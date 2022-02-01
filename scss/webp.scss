@@ -1,0 +1,185 @@
+
+.no-webp .primary-header::before {
+    background-image: url("../images/assets/red-stain.png");  
+}
+
+.webp .primary-header::before {
+    background-image: url("../images/assets/red-stain.webp"); 
+}
+
+.no-webp .primary-header::after {
+    background-image: url("../images/assets/blue-stain-insta.png"); 
+}
+
+.webp .primary-header::after {
+    background-image: url("../images/assets/blue-stain-insta.webp"); 
+}
+
+.no-webp .primary-header .header-container .h-content-left h2::after {
+    background-image: url("../images/assets/yellow-underline.png"); 
+}
+
+.webp .primary-header .header-container .h-content-left h2::after {
+    background-image: url("../images/assets/yellow-underline.webp"); 
+}
+  
+.webp .header-blocks {
+    .row {
+        .block:nth-child(1) .feature {
+            background-image: url(../images/assets/stain-1.webp);
+        }
+
+        .block:nth-child(2) .feature {
+            background-image: url(../images/assets/stain-2.webp);
+        }
+
+        .block:nth-child(3) .feature {
+            background-image: url(../images/assets/stain-3.webp);
+        }
+
+        .block:nth-child(4) .feature {
+            background-image: url(../images/assets/stain-4.webp);
+        }
+    }
+}
+
+.no-webp .header-blocks {
+    .row {
+        .block:nth-child(1) .feature {
+            background-image: url(../images/assets/stain-1.png);
+        }
+
+        .block:nth-child(2) .feature {
+            background-image: url(../images/assets/stain-2.png);
+        }
+
+        .block:nth-child(3) .feature {
+            background-image: url(../images/assets/stain-3.png);
+        }
+
+        .block:nth-child(4) .feature {
+            background-image: url(../images/assets/stain-4.png);
+        }
+    }
+}
+
+.no-webp body > footer {
+    background-image: url("../images/assets/patka.png");
+  }
+  
+.webp body > footer {
+  background-image: url("../images/assets/patka.webp");
+}
+
+.no-webp #copyright::after {
+  background-image: url("/images/logos/fuze-logo.png");
+}
+
+.webp #copyright::after {
+  background-image: url("/images/logos/fuze-logo.webp");
+}
+
+.no-webp .blue-stain-bg {
+  background-image: url("../images/assets/blue-stain.png");
+}
+
+.webp .blue-stain-bg {
+  background-image: url("../images/assets/blue-stain.webp");
+}
+
+.no-webp .branches .row [class^="col"]:nth-of-type(1) .location {
+  background-image: url("../images/assets/blob-1.png");
+}
+
+.webp .branches .row [class^="col"]:nth-of-type(1) .location {
+  background-image: url("../images/assets/blob-1.webp");
+}
+
+.no-webp .branches .row [class^="col"]:nth-of-type(2) .location {
+  background-image: url("../images/assets/blob-2.png");
+}
+
+.webp .branches .row [class^="col"]:nth-of-type(2) .location {
+  background-image: url("../images/assets/blob-2.webp");
+}
+
+.no-webp .branches .row [class^="col"]:nth-of-type(3) .location {
+  background-image: url("../images/assets/blob-3.png");
+}
+
+.webp .branches .row [class^="col"]:nth-of-type(3) .location {
+  background-image: url("../images/assets/blob-3.webp");
+}
+
+.no-webp .video-block .video,
+.no-webp .video-block-2 .video {
+  background-image: url("../images/assets/video-stain.png");
+}
+
+.webp .video-block .video,
+.webp .video-block-2 .video {
+  background-image: url("../images/assets/video-stain.webp");
+}
+
+.no-webp header .blue-stain-bg {
+  background-image: url("../images/assets/blue-stain.png");
+}
+
+.webp header .blue-stain-bg {
+  background-image: url("../images/assets/blue-stain.webp");
+}
+
+
+.no-webp .secondary-header::before {
+  background-image: url("../images/assets/red-stain.png");
+}
+
+.webp .secondary-header::before {
+  background-image: url("../images/assets/red-stain.webp");
+}
+
+.no-webp .secondary-header .person-img {
+  background-image: url("../images/assets/white-stain-person.png");
+}
+
+.webp .secondary-header .person-img {
+  background-image: url("../images/assets/white-stain-person.webp");
+}
+
+.no-webp .secondary-header .person-img .img::after {
+  background-image: url("../images/assets/red-stain-person.png");
+}
+
+.webp .secondary-header .person-img .img::after {
+  background-image: url("../images/assets/red-stain-person.webp");
+}
+
+@include media-breakpoint-down(lg) {
+    .no-webp header .blue-stain-bg,
+    .webp header .blue-stain-bg  {
+        background-image: none;
+    }
+
+    .no-webp .navbar-toggler {
+        background-image: url(../images/assets/menu-yellow.png);
+    }
+
+    .webp .navbar-toggler {
+        background-image: url(../images/assets/menu-yellow.webp);
+    }
+
+    .no-webp .navbar-toggler[aria-expanded="true"]{
+        background-image: url(../images/assets/menu-close.png);
+    }
+
+    .webp .navbar-toggler[aria-expanded="true"] {
+        background-image: url(../images/assets/menu-close.webp);
+    }
+}
+
+.no-webp .no-bg {
+  background-image: linear-gradient(to bottom, transparent, rgb(110, 108, 118)), url("../images/logos/logo-transparent.png");
+}
+.webp .no-bg {
+  background-image: linear-gradient(to bottom, transparent, rgb(110, 108, 118)), url("../images/logos/logo-transparent.webp"); 
+}

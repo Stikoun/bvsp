@@ -1,0 +1,28 @@
+$red: #c42b2d;
+$red-hover: #c42b2dde;
+$red-transparent: rgba(196, 43, 45, 0.7);
+$light-red: #ec5759;
+$dark: #2b2d42;
+$dark-second: #262739;
+$white-text: #fff;
+$yellow: #fffd82;
+$yellow-hover: #fffd82dc;
+$beige: #e7e3de;
+
+.c-yellow {
+    color: $yellow;
+}
+
+.c-red,
+.c-red:hover {
+    color: $red;
+}
+
+.c-black {
+    color: black;
+}
+
+.c-dark-second {
+    color: $dark-second;
+}
+

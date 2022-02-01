@@ -1,0 +1,45 @@
+{block content}
+{var $query = new WP_Query(array('post_type' => 'training_group','posts_per_page' => -1,'post_parent' => get_the_ID()))}
+
+<section id="group-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 img">
+                <img n:if="get_the_post_thumbnail_url()" src="{the_post_thumbnail_url()}" alt="{the_title()}">
+                <rezervin-signup n:if="get_field('unit_id')" id="{get_field('unit_id')}"></rezervin-signup>
+                <div class="icon-box">
+                    <i class="icon-files"></i><br>
+                    <a class="effect-under-right before red" href="/cenik">Ceny tréninků</a>
+                </div>               
+            </div>
+            <div class="col-md-9">
+                <h2>{the_title()}</h2>
+                {the_content()}
+            </div>
+        </div>
+        {if $query->have_posts()}
+        <div class="row">
+            <h2>Vypsané tréninkové skupiny kategorie {the_title()}</h2>
+            {while $query->have_posts()}
+            {$query->the_post()}
+                <div class="col-md-12">
+                    <div class="cta">
+                        <div class="row">
+                            <div class="col-md-1 bg" style="background-image:url('{the_post_thumbnail_url()}')"></div>
+                            <div class="col-md-8 content">
+                                <a href="{the_permalink()}" class="effect-under-right before red"><h3>{the_title()}</h3></a>
+                                <p>{the_excerpt()}</p>
+                                <a href="{the_permalink()}" class="effect-under-right before red">O skupině</a>
+                            </div>
+                            <div class="col-md-3">
+                                <rezervin-signup n:if="get_field('unit_id')" id="{get_field('unit_id')}"></rezervin-signup>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {/while}
+            {php wp_reset_postdata()}
+        </div>
+        {/if}
+    </div>
+</section>

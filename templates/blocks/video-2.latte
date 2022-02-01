@@ -1,0 +1,38 @@
+<section class="video-block-2 py-5">
+    {dump $data}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 video">
+                <h2>{get_field("heading")|noescape}</h2>
+                <div class="iframe-container">
+                    {get_field('video')|replace: 'frameborder="0"', ''|noescape}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>{get_field("subheading")|noescape}</h3>
+                {if have_rows("list")}
+                    <div class="feature-list">
+                        <ul>
+                        {while have_rows("list")}
+                            {php the_row()}
+                            <li>{get_sub_field("heading")|noescape}</li>
+                            <p>{get_sub_field("text")|noescape}</p>
+                        {/while}
+                        </ul>
+                    </div>
+                {/if}
+                <a href="{get_field('button')['link']|noescape}" class="button style-yellow">{get_field('button')['text']|noescape}</a>
+                <div class="icon-container">
+                    <div class="icon">
+                        <i class="icon-files"></i>
+                        <a href="/app/uploads/2021/08/Prihlaska_pro_tisk_NP.pdf" class="effect-under-right before red">Přihláška k tisku</a>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-files"></i>
+                        <a href="/cenik" class="effect-under-right before red">Ceník ke stažení</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

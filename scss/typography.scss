@@ -1,0 +1,91 @@
+$bold: 'BryantWebBoldAlt';
+$regular: 'BryantWebRegularAlt';
+
+@font-face {
+  font-family: 'BryantWebRegularAlt';
+  src: url('../assets/webfonts/BryantWebRegularAlt.eot');
+  src: url('../assets/webfonts/BryantWebRegularAlt.eot?#iefix') format('embedded-opentype'),
+         url('../assets/webfonts/BryantWebRegularAlt.woff2') format('woff2'),
+         url('../assets/webfonts/BryantWebBoldAlt.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}  
+
+@font-face {
+	font-family: 'BryantWebBoldAlt';
+	src: url('../assets/webfonts/BryantWebBoldAlt.eot');
+	src: url('../assets/webfonts/BryantWebBoldAlt.eot?#iefix') format('embedded-opentype'),
+         url('../assets/webfonts/BryantWebBoldAlt.woff2') format('woff2'),
+         url('../assets/webfonts/BryantWebBoldAlt.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $regular;
+}
+
+h1, h2, h3, h4, h5, a {
+  font-family: $bold;
+}
+
+a,
+a:hover {
+  color: $red;
+}
+
+h1 {
+  font-size: 76px;
+  color: $white-text;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 47px;
+  line-height: 50px;
+  margin: 20px 0;
+
+  @include media-breakpoint-down(md) { 
+    font-size: 38px;
+    line-height: 41px;
+  }
+}
+
+h3 {
+  font-size: 29px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 26px;
+
+  @include media-breakpoint-down(md) { 
+    text-align: justify;
+  }
+}
+
+a {
+  text-decoration: none;;
+}
+
+.underline {
+  text-decoration: underline;
+
+  &.style-white {
+    -webkit-text-decoration-color: rgba(255, 255, 255, 0.4); /* Safari */   
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+  }
+
+  &.style-red {
+    -webkit-text-decoration-color: rgba(255, 0, 0, 0.4); /* Safari */   
+    text-decoration-color: rgba(255, 0, 0, 0.4);
+  }
+}
+
+.big-text {
+  font-size: 29px;
+}

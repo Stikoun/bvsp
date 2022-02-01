@@ -1,0 +1,15 @@
+<div class="block-icon">
+    <div class="icon-box" n:foreach="get_field('icons') as $i">
+        <i class="{$i['icon']}"></i>
+        <div class="content">
+            <span>{$i['heading']}</span>
+            {if strstr($i['link'], '@')}
+                <a class="effect-under-right before red" href="mailto:{$i['link']}">{$i['link']}</a>
+            {elseif preg_match('/^[\d\s]+$/',$i['link'])}
+                <a class="effect-under-right before red" href="tel:{$i['link']|replace: ' ', ''}">{$i['link']}</a>
+            {else}
+                <a class="effect-under-right before red" href="{$i['link']}">{$i['link']}</a>
+            {/if}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="cta">
+    <div class="row">
+        <div class="col-md-4 bg" style="background-image:url({get_field('image')|noescape})"><div class="circle"></div></div>
+        <div class="col-md-8 content">
+            <h3>{get_field('heading')}</h3>
+            <div>{get_field('text')} <span class="c-red underline style-red">{get_field('person')}</span></div>
+            <div class="icon-box">
+                <i class="icon-phone"></i><br>
+                <a class="effect-under-right before red" href="tel:{get_field('tel')|replace: ' ', ''}">{get_field('tel')}</a>
+            </div>
+            <div class="icon-box">
+                <i class="icon-mail-inbox-app"></i><br>
+                <a class="effect-under-right before red" href="mailto:{get_field('mail')}">{get_field('mail')}</a>
+            </div>
+        </div>
+    </div>
+</div>

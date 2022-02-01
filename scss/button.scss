@@ -1,0 +1,232 @@
+.button,
+.rezervin-signup button {
+  padding: 20px 30px;
+  display: inline-block;
+  border-radius: 37px;
+  text-decoration: none;
+  font-weight: bold;
+
+  &::after {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f30b";
+    margin-left: 0.8rem;
+  }
+
+  &.style-red {
+    background: $red;
+    color: white;
+
+    &::after {
+      color: $yellow;
+    }
+
+    &:hover {
+      background: $red-hover;
+    }
+  }
+
+  &.style-yellow {
+    background: $yellow;
+    color: black;
+
+    &::after {
+      color: $red;
+    }
+
+    &:hover {
+      background: $yellow-hover;
+    }
+  }
+
+
+  &.style-blue {
+    background: $dark;
+    color: white;
+
+    &::after {
+      color: white;
+    }
+
+    &:hover {
+      background: #313342;
+    }
+  }
+}
+
+.link {
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+
+  &::after {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054";
+    margin-left: 0.8rem;
+  }
+
+  &.style-yellow {
+    color: $yellow;
+
+    &:hover, &:focus {
+      color: white;
+  
+      ::after {
+        color: white;
+      }
+    }
+  }
+
+  &.style-red {
+    color: $red;
+  }
+}
+
+.effect-under-right {
+  position: relative;
+
+  &.before {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    &.white::before {
+      background-color: #FFF;
+    }
+  
+    &.red::before {
+      background-color: $red;
+    }
+   
+    &.yellow::before {
+      background-color: $yellow;
+    }
+
+    &.black::before {
+      background-color: #000;
+    }
+    
+    &:hover::before,
+    &:focus::before {
+      visibility: visible;
+      width: 100%;
+    }
+  }
+
+  &.after {
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    &.white::after {
+      background-color: #FFF;
+    }
+  
+    &.red::after {
+      background-color: $red;
+    }
+   
+    &.yellow::after {
+      background-color: $yellow;
+    }
+
+    &.black::after {
+      background-color: #000;
+    }
+    
+    &:hover::after,
+    &:focus::after {
+      visibility: visible;
+      width: 100%;  
+    }
+  }
+}
+
+
+.menu-list.style-red a {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    background-color: $red;
+  }    
+  &:hover::before,
+  &:focus::before {
+    visibility: visible;
+    width: 100%;
+  }
+}
+
+.rezervin-signup button {
+  background: $yellow;
+  color: black;
+  border: none;
+  font-family: $bold;
+  margin-top: 2rem;
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    background: $yellow-hover;
+  }
+
+  &[disabled] {
+    background-color: #cccccc;
+    color: #666666;
+  }
+}
+
+.icon-after {
+  &::after {
+    font-family: "iconsbvsp";
+    font-weight: 900;
+    margin-left: 0.8rem;
+    line-height: 18px;
+    vertical-align: middle;
+  }
+}
+
+.btn-back {
+  background: $yellow;
+  margin-top: 15px;
+  border-radius: 37px;
+  padding: 5px 20px;
+  color: $dark !important;
+  font-weight: bold;
+  border: none;
+}
+

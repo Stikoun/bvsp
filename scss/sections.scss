@@ -1,0 +1,311 @@
+@include media-breakpoint-up(md) { 
+  main > *:last-child {
+    padding-bottom: 200px;
+  }
+}
+
+@include media-breakpoint-down(md) { 
+  main > *:last-child {
+    padding-bottom: 30px;
+  }
+}
+
+body:not(.home) main > *:first-child {
+  margin-top: -180px !important;
+  padding-top: 180px !important;
+}
+
+.partners {
+  .col {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  img {
+    filter: grayscale(100%);
+    margin: 0 4px;
+    max-width: 100%;
+
+    &:hover {
+      filter: none;
+    }
+  }
+}
+
+#hp-wrapper-red {
+    background: #b6292b;
+}
+
+.branches {
+    h2 {
+        color: $white-text;
+    }
+
+    .row {
+      [class^="col"] {
+
+        @include media-breakpoint-down(md) { 
+          margin-bottom: 2rem;
+        }
+      }
+    }
+}
+
+.video-block,
+.video-block-2,
+.blue-stain-block {
+
+  a {
+    color: $red;
+  }
+  i::before {
+    color: #b4afac;
+  }
+
+  .button {
+    margin-right: 20px;
+  }
+
+  .icon-container {
+    margin-bottom: 20px;
+  }
+
+  .video {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding-bottom: 100px;
+
+    .iframe-container {
+      border-radius: 30px;
+      overflow: hidden;
+      iframe {
+        max-width: 100%;
+      }
+    }
+  }
+
+  
+.blue-stain-bg {
+  display: inline-block;
+  text-align: left;
+  font-family: $bold;
+  background-size: initial;
+  padding: 10px 50px;
+  margin-bottom: 20px;
+  background-size: 100% 100%;
+
+  p {
+    font-size: 19px;
+    color: $white-text;
+    margin-bottom: 0;
+  }
+  span {
+    display: block;
+    font-size: 29px;
+    color: $yellow;
+    padding-top: 5px;
+  }
+  h3 {
+    font-size: 29px;
+    color: $white-text;
+    margin-bottom: 0;   
+  }
+}
+
+  @include media-breakpoint-down(md) { 
+    .video {
+      padding: 0;
+    }
+  }
+}
+
+.video-block {
+  @include media-breakpoint-down(md) { 
+    .video {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.video-block-2 {
+  .feature-list {
+    li {
+      display: block;
+    }
+  }
+  .video {
+    text-align: left;
+  } 
+
+  .button {
+    margin-top: 1rem;
+  }
+
+  .icon-container {
+    margin-top: 2rem;
+  }
+
+  @include media-breakpoint-down(md) { 
+    .video {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.navigation {
+  @include media-breakpoint-down(md) { 
+    [class^="col"] {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.custom-table {
+  border: none;
+
+  tr {
+    border: none;
+    
+    td:first-of-type {
+      font-family: $bold;
+      padding-left: 0;
+      text-decoration: underline;
+    }   
+  }
+}
+
+#group-detail {
+  .img {
+    text-align: center;
+
+    button {
+      margin-bottom: 2rem;
+    }
+
+    .icon-box {
+      justify-content: center;
+
+      i::before {
+        color: #b4afac;
+      }
+    }
+  }
+
+  .row > h2 {
+    margin-top: 4rem;
+  }
+}
+
+
+#cookies {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 99;
+  padding: 10px;
+
+  & > .container {
+    background-color: #e9e3de;
+    border-radius: 50px;
+    padding: 1rem;
+    .text {
+    margin: auto 0;
+
+    p {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      color: initial;
+
+      &:before {
+        font-size: 24px;
+        color: #b3afac;
+        font-family: "iconsbvsp";
+        font-weight: normal;
+        margin-right: 0.8rem;
+        line-height: 18px;
+        vertical-align: middle;
+        content: "\74";
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      color: $yellow;
+    }
+
+    .icon-after::after {
+      content: "\67";
+    }
+
+    @include media-breakpoint-down(md) { 
+      button {
+        margin-top: 1rem;
+      }
+    }    
+  }
+}
+
+
+.team {
+  h2 {
+    margin-top: 4rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .cta {
+
+    .bg-wrapper {
+      width: 100%;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+      text-align: center;
+
+      h3 {
+        font-size: 22px;
+        color: $red;
+      }
+
+      h4 {
+        font-size: 18px;
+      }
+
+      .icon-box {
+        i::before {
+          color: black;
+        }
+
+      }
+    }
+  }
+}
+
+#facility-detail {
+  .img {
+    text-align: center;
+  }
+
+  .icon-box {
+    justify-content: center;
+    margin: 1rem 0;
+  }
+}
+
+.post-detail {
+  & > .container {
+    max-width: 920px;
+  }
+}

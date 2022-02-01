@@ -1,0 +1,11 @@
+<table class="custom-table">
+    {if have_rows("table")}
+        {while have_rows("table")}
+            {php the_row()}
+            <tr>
+                <td>{get_sub_field("first_column")}</td>
+                <td>{get_sub_field("second_column")}</td>
+            </tr>
+        {/while}
+    {/if}
+</table>

@@ -1,0 +1,44 @@
+<section class="video-block py-5">
+    {dump $data}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{get_field("heading")}</h2>
+                {get_field("text")|noescape}
+                <div class="icon-container">
+                    <div class="icon">
+                        <i class="icon-pin-2"></i>
+                        <a href="#arealy" class="effect-under-right before red">Domyno</a>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-pin-2"></i>
+                        <a href="#arealy" class="effect-under-right before red">Koráb</a>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-pin-2"></i>
+                        <a href="#arealy" class="effect-under-right before red">Mikulovka</a>
+                    </div>
+                </div>
+                <a href="/nabory" class="button style-red">K náborům</a>
+                <i class="icon-files"></i>
+                <a href="/cenik" class="effect-under-right before red">Ceny tréninků</a>
+            </div>
+            <div class="col-md-6 video">
+                <div class="blue-stain-bg">
+                    <p>
+                        {foreach explode("<br />",get_field('tag')) as $item}
+                            {if $iterator->getCounter() == 2}
+                                <span>{$item}</span>
+                            {else}
+                                {$item}<br />
+                            {/if}
+                        {/foreach}
+                    </p>
+                </div>
+                <div class="iframe-container">
+                    {get_field('video')|replace: 'frameborder="0"', ''|noescape}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

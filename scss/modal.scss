@@ -1,0 +1,64 @@
+.rezervin-modal {
+  z-index: 9999;
+  .modal-content {
+    //background-color: #38394C;
+    background-color: #e8e3df;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    width: 80vw;
+    padding: 30px 60px;
+    .modal-header {
+      padding: 0;
+      margin-bottom: 20px;
+      border: none;
+      justify-content: flex-end;
+    }
+    button.modal-close {
+      font-size: 15px;
+      font-weight: 900;
+      background-color: #4A4B67;
+      padding: 8px 30px 8px 20px;
+      border-radius: 40px;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    input {
+      height: 43px;
+      width: 100%;
+      border-radius: 10px;
+      background-color: #FFFFFF;
+      border: none;
+      margin-top: 3px;
+      padding-left: 10px;
+      font-weight: 900;
+      color: #33333F;
+      &:hover,&:focus {
+        background-color: #f3f3f3;
+      }
+      &:focus {
+        outline: 0 none;
+        border: none;
+      }
+      &::placeholder {
+        font-size: 14px;
+        font-weight: 300;
+        color: #A1A1A1;
+      }
+      &[type=submit] {
+        height: 50px;
+        margin-top: 20px;
+        border-radius: 20px;
+        background-color: #FFFC7C;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 900;
+      }
+    }
+    label {
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+}

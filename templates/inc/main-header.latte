@@ -1,0 +1,90 @@
+<header class="primary-header" style="background-image: url({get_the_post_thumbnail_url()});">
+    <div class="header-top px-3">
+        <a class="navbar-brand pt-0 pb-0" href="{bloginfo('url')}">
+            {*bloginfo('name')*}
+            <img class="nav-logo img-fluid" alt="Beachvolejbalová škola Praha logo" src="{get_template_directory_uri()}/images/logos/logo-transparent.png"/>
+        </a>
+        <div class="mobile-right">
+            <rezervin-user class="blue-stain-bg"></rezervin-user>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="h-content-left">
+                    <h1>{get_field("title")}</h1>
+                    <h2>{get_field("subtitle")}</h2>
+                </div>
+                <div class="h-links">
+                    <a href="/prihlaska" class="button style-yellow">Registrace Děti a mládež</a>
+                    <a href="/dospeli/registrace" class="button style-yellow">Registrace Dospělí</a>
+                    <a href="/o-nas/treneri">Naši trenéři</a>
+                    <a href="#arealy">Naše areály</a>
+                </div>
+            </div>
+            <div class="header-nav">
+                <nav class="navbar-expand-lg navbar-main">
+                    <div class="container-fluid">
+                        {php wp_nav_menu( array(
+                            'theme_location'    => 'primary',
+                            'depth'             => 2,
+                            'container'         => 'div',
+                            'container_class'   => 'collapse navbar-collapse',
+                            'container_id'      => 'mainNavbar',
+                            'menu_class'        => 'nav navbar-nav',
+                            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                            'walker'            => new WP_Bootstrap_Navwalker()
+                        ) );}
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="header-blocks">
+            <div class="row">
+                <div class="col-6 col-md-3 block" data-aos="fade-in">
+                    <div class="feature">
+                        <i class="fas fa-check fa-2x"></i>
+                        <h3>Jsme držiteli titulu<br> celorepublikové beach ligy</h3>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 block" data-aos="fade-in">
+                    <div class="feature">
+                        <i class="fas fa-check fa-2x"></i>
+                        <h3>Profesionální přístup<br> licencovaných trenérů</h3>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 block" data-aos="fade-in">
+                    <div class="feature">
+                        <i class="fas fa-check fa-2x"></i>
+                        <h3>Účastníme se vrcholových soutěží<br> a mistrovství ČR</h3>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 block" data-aos="fade-in">
+                    <div class="feature">
+                        <i class="fas fa-check fa-2x"></i>
+                        <h3>Tréninky pod vedením<br> bývalých i současných reprezentantů</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <svg width="0" height="0">
+        <defs>
+            <clipPath id="mask-mobile" clipPathUnits="objectBoundingBox">
+                <path
+                    transform="scale(0.00135, 0.0022)"
+                    d="m 0 151 l 0 -151 l 371.1 0 l 371.1 0 l -0.2 0 l 0 30 l 0 400 c -240 30 -500 30 -742 0 z">
+                </path>
+            </clipPath>
+            <clipPath id="mask-pc" clipPathUnits="objectBoundingBox">
+                <path
+                    transform="scale(0.00135, 0.0022)"
+                    d="m 0 151 l 0 -151 l 371.1 0 l 371.1 0 l -0.2 0 l 0 30 l 0 134 c 0 448 -719 266 -743 181 z">
+                </path>
+            </clipPath>
+        </defs>
+    </svg>
+</header>

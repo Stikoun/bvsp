@@ -1,0 +1,36 @@
+{* TOTO JE HLAVNÍ STRÁNKA (front-page)*}
+{block hero}
+
+{/block}
+{block content}
+
+{the_content()}
+
+{include "../inc/posts.latte"}
+
+<section class="navigation py-2 py-lg-5">
+    <div class="container">
+        <div class="row">
+            {if ( is_active_sidebar( 'hp_navigation' ) )}
+                {php dynamic_sidebar( 'hp_navigation' )}
+            {/if} 
+        </div>
+    </div>
+</section>
+
+<section class="partners pt-2 pt-lg-5 mb-2 mb-lg-5">
+    <div class="container">
+        <h2>Naši partneři</h2>
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-5">   
+            {if ( is_active_sidebar( 'section_partners' ) )}
+                {php dynamic_sidebar( 'section_partners' )}
+            {/if} 
+        </div>   
+    </div>
+</section>
+
+
+<div id="hp-wrapper-red">
+    {include "../inc/facilities.latte"}
+    {*include "../inc/instagram.latte"*} {*NOT NECESSARY NOW*}
+</div>

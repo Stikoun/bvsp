@@ -1,0 +1,9 @@
+<div class="cta">
+    <div class="row">
+        <div class="col-md-4 bg" style="background-image:url('{get_field('image')|noescape}')"></div>
+        <div class="col-md-8 content">
+            <p>{get_field('text')}</p>
+            <a n:foreach="get_field('links') as $p" href="{$p['link']}" class="effect-under-right after red">{$p['link_text']}</a>
+        </div>
+    </div>
+</div>

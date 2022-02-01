@@ -1,0 +1,54 @@
+{block content}
+{php $current_id = get_the_ID()}
+{php $current_cat = get_the_terms($current_id, "rubrika")}
+{php $main_img = get_field('img')}
+<section class="post-detail">
+    <div class="container">
+        <div class="post-nav">
+            <a href="{get_permalink(get_previous_post()->ID)}" class="prev">Předchozí článek</a>
+            <a href="/blog" class="current">Seznam článků</a>
+            <a href="{get_permalink(get_next_post()->ID)}" class="next">Další článek</a>       
+        </div>
+        <article>
+            <header>
+                <div class="post-card">
+                   {if $main_img}
+                        <img src="{$main_img['url']}" alt="{$main_img['alt']}"> 
+                    {else}
+                        <img src="{get_stylesheet_directory_uri()}/images/logos/logo-transparent.png" alt="BVŠP logo" class="empty">         
+                   {/if} 
+     
+                    {php $reading_time = YoastSEO()->meta->for_current_page()->estimated_reading_time_minutes}
+                    {if $reading_time}
+                        <div class="tag blue-stain-bg">
+                            <span>{$reading_time} 
+                            {if $reading_time == 1 } 
+                            minuta čtení
+                            {elseif $reading_time  < 5 }
+                            minuty čtení
+                            {else}
+                            minut čtení
+                            {/if}
+                            </span>
+                        </div>    
+                    {/if}      
+                </div>            
+                <div class="meta">
+                    <h2>{the_title()}</h2>
+                    <span>{get_the_author()}</span>
+                    <span n:foreach="$current_cat as $cat">{$cat->name}</span>
+                    <span>{get_the_date()}</span>   
+                </div>       
+            </header>
+            <div class="content">
+                {the_content()}  
+            </div> 
+            <footer>
+                <div class="tags" n:if="get_terms('stitek')">
+                    <h3>Štítky</h3>
+                    <a n:foreach="get_terms('stitek') as $tag" href="{get_term_link($tag)}">{$tag->name}</a>
+                </div>
+            </footer>
+        </article>
+    </div>
+</section>

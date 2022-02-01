@@ -1,0 +1,20 @@
+{*
+php
+    $url = 'https://www.instagram.com/'.get_field('instagram','option').'/?__a=1';
+    $instaResult = file_get_contents($url);
+    $insta = json_decode($instaResult);
+    $instagram_photos = $insta->graphql->user->edge_owner_to_timeline_media->edges;
+    dump($url, get_field('instagram','option'),$instaResult);
+*}
+<section class="insta-feed pb-5">
+    <div class="container">
+        <h2>Sledujte nás na instagramu</h2>
+        <div class="row">
+            <div n:foreach="[1,2,3,4,5,6,] as $photo" class="col-md-3">
+                <a href="#">
+                    <img alt="instagram" src="{php echo get_stylesheet_directory_uri()}/images/insta1.jpg">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

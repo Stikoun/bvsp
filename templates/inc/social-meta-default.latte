@@ -1,0 +1,20 @@
+{php 
+$current_url = home_url($_SERVER['REQUEST_URI']);
+$default_featured_image = "".get_stylesheet_directory_uri()."/img/favicon/favicon-16x16.png";
+}
+
+
+<meta property="og:title" content="{php wp_title();}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{php $current_url;}" />
+<meta property="og:image" content="{php echo $default_featured_image;}" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="{php wp_title();}"/>
+<meta name="twitter:site" content="@yourusername"/>
+<meta name="twitter:image" content="{php echo $default_featured_image;}" />
+
+{if ( is_front_page() )}  
+<meta property="og:description" content="{php bloginfo( 'description' )}" />
+<meta name="twitter:description" content="{php bloginfo( 'description' )}" />
+{/if}

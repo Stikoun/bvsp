@@ -1,0 +1,69 @@
+{* TOTO JE STRÁNKA S VÝPISEM PŘÍSPĚVKŮ, KTERÝ LZE POUŽÍT NA LIBOVOLNÉ STRÁNCE)*}
+{var $loop_news = new WP_Query(array('post_type' => 'post', 'posts_per_page' => 4))}
+{var $loop_blog = new WP_Query(array('post_type' => 'blog', 'posts_per_page' => 1))}
+{dump $loop_news}
+<section class="post-widget" n:if="$loop_news || $loop_blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="top-container">
+                    <h2>Novinky</h2> 
+                    <a href="/novinky" class="link style-red effect-under-right before red">Seznam novinek</a> 
+                </div>
+                <div class="row">
+                {if $loop_news->have_posts()}
+                    {while $loop_news->have_posts()}
+                        {php $loop_news->the_post()}
+                        {php $current_facility = get_the_terms(get_the_ID(),'arealy')}
+                        <div class="col-md-6">
+                            <a href="{the_permalink()}">
+                                <div class="post-card"
+                                    style="background-image:url({the_post_thumbnail_url()})">
+                                    <div class="content">
+                                        <div class="tag blue-stain-bg" n:if="$current_facility"><span n:foreach="$current_facility as $facility">{$facility->name}</span></div>     
+                                        <h3>{the_title()}</h3>
+                                        <div class="meta">
+                                            <span>{get_the_date()}</span>                                       
+                                        </div>                     
+                                    </div> 
+                                </div>
+                            </a>                           
+                        </div>      
+                    {/while}
+                {/if}
+                </div>
+            </div>
+            {if $loop_blog->have_posts()}
+                {while $loop_blog->have_posts()}
+                    {php $loop_blog->the_post()}
+                    {php $current_id = get_the_ID()}
+                    {php $current_cat = get_the_terms($current_id, "rubrika")}
+                    <div class="col-md-5 ml-auto my-5 my-md-0">
+                        <div class="top-container">
+                            <h2>Blog od sítě</h2>
+                            <a href="/blog" class="link style-red effect-under-right before red">Seznam článků</a> 
+                        </div>
+                        <a href="{the_permalink()}">
+                            <div class="post-card"
+                                style="background-image:url({the_post_thumbnail_url()})">
+                                <div class="content">
+                                    <h3>{the_title()}</h3>
+                                    <div class="meta">
+                                        <span>{get_the_author()}</span>
+                                        <span n:foreach="$current_cat as $cat">{$cat->name}</span>
+                                        <span>{get_the_date()}</span>                                       
+                                    </div>                     
+                                </div> 
+                            </div>
+                        </a>
+                        <div class="post-content">
+                            <p>{get_the_excerpt()|truncate:300}</p>
+                            <a href="{the_permalink()}" class="button style-red">Přečíst článek</a>                       
+                        </div>
+                    </div>
+                {/while}
+            {/if}
+        </div>
+    </div>
+</section>
+

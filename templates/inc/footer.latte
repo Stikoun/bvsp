@@ -1,0 +1,47 @@
+<footer class="menu-list style-yellow">  
+    <div class="container">
+        <div class="row">
+            {if ( is_active_sidebar( 'footer_column_1' ) )}
+                {php dynamic_sidebar( 'footer_column_1' )}
+            {/if}
+            {if ( is_active_sidebar( 'footer_column_2' ) )}
+                {php dynamic_sidebar( 'footer_column_2' )}
+            {/if}
+            {if ( is_active_sidebar( 'footer_column_3' ) )}
+                {php dynamic_sidebar( 'footer_column_3' )}
+            {/if}
+        </div>
+        <div class="row" id="absolute-footer">
+            <div class="col-md-6 col-lg-8">
+                {if ( is_active_sidebar( 'absolute_footer_column_1' ) )}
+                    {php dynamic_sidebar( 'absolute_footer_column_1' )}
+                {/if}
+                <a href="https://fuze.technology/" target="_blank" id="copyright">
+                    Vytvořilo
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+            <div class="icon-container">
+                {if have_rows("socials", "option")}
+                    {while have_rows("socials", "option")}
+                        {php the_row()}
+                        <span n:if="get_sub_field('heading')">{get_sub_field('heading')}</span>
+                        {if get_sub_field("instagram")}
+                            <a href="{get_sub_field('instagram')}" target="_blank"><i class="icon-instagram"></i></a>
+                        {/if}
+                        {if get_sub_field("facebook")}
+                            <a href="{get_sub_field('facebook')}" target="_blank"><i class="icon-facebook"></i></a>
+                        {/if}
+                        {if get_sub_field("youtube")}
+                            <a href="{get_sub_field('youtube')}" target="_blank"><i class="icon-youtube"></i></a>
+                        {/if}
+                    {/while}
+                {/if}
+            </div>
+            {if ( is_active_sidebar( 'absolute_footer_column_2' ) )}
+                {php dynamic_sidebar( 'absolute_footer_column_2' )}
+            {/if}
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,66 @@
+{block content}
+    <section class="post-list">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 order-2 order-lg-1">
+                    <h2>{the_archive_title()}</h2>
+                    {if have_posts()}
+                        {while have_posts()}
+                        {the_post()}
+                        {php $current_id = get_the_ID()}
+                        {php $current_cat = get_the_terms($current_id, "rubrika")}
+                            <article>
+                                <a href="{the_permalink()}">
+                                {if get_the_post_thumbnail()}
+                                        <div class="post-card" 
+                                        style="background-image:linear-gradient(to bottom, transparent, rgb(110, 108, 118)),
+                                        url('{the_post_thumbnail_url()}')">
+                                {else}
+                                        <div class="post-card no-bg">
+                                {/if}             
+                                        {php $reading_time = YoastSEO()->meta->for_current_page()->estimated_reading_time_minutes}
+                                        {if $reading_time}
+                                            <div class="tag blue-stain-bg"><span>{$reading_time} minuty čtení</span></div>    
+                                        {/if}        
+                                        <div class="content">
+                                            <h3>{the_title()}</h3>
+                                            <div class="meta">
+                                                <span>{get_the_author()}</span>
+                                                <span n:foreach="$current_cat as $cat">{$cat->name}</span>
+                                                <span>{get_the_date()}</span>                                       
+                                            </div>                     
+                                        </div>                                 
+                                    </div> 
+                                </a>               
+                                {the_excerpt()}
+                            </article>
+                        {/while}
+                    {/if}
+                </div>
+                <div class="col-lg-3 ml-auto order-1 order-lg-2">
+                    <aside class="sidebar">
+                        <section class="list">
+                            <h3>Témata článků</h3>
+                            <ul>
+                                <li n:foreach="get_terms('rubrika') as $cat">
+                                    <a href="{get_term_link($cat)}">{$cat->name}</a>
+                                </li>
+                            </ul>
+                        </section>
+                         <section class="list">
+                            <h3>Archiv článků</h3>
+                            <ul>
+                                {wp_get_archives( array( 'type' => 'monthly', 'post_type' => 'blog') )}                             
+                            </ul>
+                        </section>
+                         <section class="tags">
+                            <h3>Štítky</h3>
+                            <a n:foreach="get_terms('stitek') as $tag" href="{get_term_link($tag)}">{$tag->name}</a>
+                        </section>                                              
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+

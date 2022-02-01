@@ -1,0 +1,24 @@
+{block content}
+
+<section id="facility-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 img">
+                <img n:if="get_the_post_thumbnail_url()" src="{the_post_thumbnail_url()}" alt="{the_title()}"> 
+                    <div class="icon-box">
+                        <i class="icon-mail-inbox-app"></i>
+                        <a href="mailto:{get_field('mail')}" class="effect-under-right before white">{get_field('mail')}</a>
+                    </div>
+                    <div class="icon-box">
+                        <i class="icon-phone"></i>
+                        <a href="tel:{get_field('tel')|replace: ' ', ''}" class="effect-under-right before white">{get_field('tel')}</a>
+                    </div>    
+                    <a class="button style-red" href="{get_field('booking')}">Rezervace</a>         
+            </div>
+            <div class="col-md-9">
+                <h2>{the_title()}</h2>
+                {the_content()}
+            </div>
+        </div>
+    </div>
+</section>

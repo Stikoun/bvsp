@@ -1,0 +1,69 @@
+{* TOTO JE STRÁNKA S JEDNÍM PŘÍSPĚVKEM (post)*}
+{block content}
+    <section class="post-list">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 order-2 order-lg-1">
+                    <h2>{the_archive_title()}</h2>
+                    {if have_posts()}
+                        {while have_posts()}
+                        {the_post()}
+                        {php $current_id = get_the_ID()}
+                        {php $current_cat = get_the_terms($current_id, "rubrika")}
+                        {php $current_facility = get_the_terms($current_id,'arealy')}
+                            <article>
+                                {if get_the_post_thumbnail()}
+                                    <div class="post-card" 
+                                    style="background-image:linear-gradient(to bottom, transparent, rgb(110, 108, 118)),
+                                    url('{the_post_thumbnail_url()}')">
+                                    {else}
+                                    <div class="post-card no-bg">
+                                {/if}              
+                                    <div class="tag blue-stain-bg" n:if="$current_facility"><span n:foreach="$current_facility as $facility">{$facility->name}</span></div>     
+                                    <div class="content">
+                                        <h3><a href="{the_permalink()}">{the_title()}</a></h3>
+                                        <div class="meta">
+                                            <span>{get_the_author()}</span>
+                                            <span n:foreach="$current_cat as $cat">{$cat->name}</span>
+                                            <span>{get_the_date()}</span>                                       
+                                        </div>                     
+                                    </div>                                 
+                                </div>                
+                                {the_excerpt()}
+                            </article>
+                        {/while}
+                    {/if}
+                </div>
+                <div class="col-lg-3 ml-auto order-1 order-lg-2">
+                    <aside class="sidebar">
+                        <section class="list">
+                            <h3>Témata novinek</h3>
+                            <ul>
+                                <li n:foreach="get_categories() as $cat">
+                                    <a href="{get_term_link($cat)}">{$cat->name}</a>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="list">
+                            <h3>Areály</h3>
+                            <ul>
+                                <li n:foreach="get_terms('arealy') as $facility">
+                                    <a href="{get_term_link($facility)}">{$facility->name}</a>
+                                </li>
+                            </ul>
+                        </section>                        
+                         <section class="list">
+                            <h3>Archiv novinek</h3>
+                            <ul>
+                                {wp_get_archives( array( 'type' => 'monthly') )}                             
+                            </ul>
+                        </section>
+                         <section class="tags">
+                            <h3>Štítky</h3>
+                            <a n:foreach="get_tags() as $tag" href="{get_term_link($tag)}">{$tag->name}</a>
+                        </section>                                              
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>

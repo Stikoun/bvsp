@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html {get_language_attributes()|noescape}>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q1ER6Z9F7"></script>
+    <script n:syntax="off">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7Q1ER6Z9F7');
+    </script>
+    {include "./inc/favicon.latte"}
+    <title>{is_404() ? get_field("error_page","option")["meta_title"] : wp_title()}</title>
+    {include "./inc/basic-meta.latte"}
+    <link rel="stylesheet" href="{get_stylesheet_directory_uri()}/node_modules/@fortawesome/fontawesome-free/css/all.min.css"> <!--FIXME-->
+    {php wp_head()}
+</head>
+<body {php body_class()}>
+    {if is_front_page()}
+        {include "./inc/main-header.latte"}
+    {else}
+        {include "./inc/header.latte"}
+    {/if}
+    <main>
+        {include content}
+    </main>
+    {include "./inc/footer.latte"}
+    {php wp_footer()}  
+    {include "./inc/cookies.latte"}
+</body>
+</html>
